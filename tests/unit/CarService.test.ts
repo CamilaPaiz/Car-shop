@@ -6,8 +6,6 @@ import ICar from '../../src/Interfaces/ICar';
 import CarService from '../../src/Services/CarService';
 import CarODM from '../../src/Models/CarODM';
 
-const RESULT_ERROR_ID = { message: 'Invalid mongo id' }; 
-
 describe('Teste da camada CarService', function () {
   const carInput : ICar = {
     
