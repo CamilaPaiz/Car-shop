@@ -40,9 +40,16 @@ class CarService {
     return this.createCarDomain(car);
   }
 
-/*   public async update(id :string): Promise<Car | null> {
-    const car
-  } */
+  public async update(id :string, obj: ICar): Promise<Car | null> {
+    /*     const car = await this.carODM.findById(id);
+    console.log('service', car);
+    if (!car) {
+      return null;
+    } */
+    const carUpdated = await this.carODM.update(id, obj);
+    console.log('service update', carUpdated);
+    return this.createCarDomain(carUpdated);
+  }   
 }
 
 export default CarService; 
