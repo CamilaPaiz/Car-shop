@@ -76,7 +76,7 @@ describe('Teste da camada CarService', function () {
     const service = new CarService(new CarODM());
     const result = await service.getAll();
     // Assertion 
-    expect(result).to.be.deep.equal([]);
+    expect(result).to.be.deep.equal(null);
   });
   it('teste listagem dos carro com sucesso na rota /cars/:id', async function () {
     // Action

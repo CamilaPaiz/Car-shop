@@ -22,9 +22,9 @@ class CarService {
     const newCar = await this.carODM.create(car);
     return this.createCarDomain(newCar);
   }
-  public async getAll(): Promise<Car[] | null> {
+  public async getAll(): Promise<Car[] | null> { 
     const cars = await this.carODM.findAll();
-    if (cars === null) {
+    if (cars.length === 0) {
       return null; 
     }
   
@@ -41,13 +41,8 @@ class CarService {
   }
 
   public async update(id :string, obj: ICar): Promise<Car | null> {
-    /*     const car = await this.carODM.findById(id);
-    console.log('service', car);
-    if (!car) {
-      return null;
-    } */
     const carUpdated = await this.carODM.update(id, obj);
-    console.log('service update', carUpdated);
+  
     return this.createCarDomain(carUpdated);
   }   
 }
