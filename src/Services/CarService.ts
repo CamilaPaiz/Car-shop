@@ -39,6 +39,10 @@ class CarService {
     const car = await this.carODM.findById(id);
     return this.createCarDomain(car);
   }
+
+/*   public async update(id :string): Promise<Car | null> {
+    const car
+  } */
 }
 
 export default CarService; 
