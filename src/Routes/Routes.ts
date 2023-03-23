@@ -10,5 +10,7 @@ const service = new CarService(
 const carController = new CarsController(service);
 
 routes.post('/cars', (req, res, next) => carController.create(req, res, next));
-
+routes.get('/cars', (req, res) => carController.findAll(req, res));
+routes.get('/cars/:id', (req, res) => carController.findById(req, res));
+ 
 export default routes; 
