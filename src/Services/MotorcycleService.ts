@@ -21,6 +21,23 @@ class MotorcycleService {
     const newMotorcycle = await this.motorcycleODM.create(motorcycle);
     return this.createMotorcycleDomain(newMotorcycle);
   }
+  public async getAll(): Promise<Motorcycle[] | null> { 
+    const motorcycles = await this.motorcycleODM.findAll();
+    if (motorcycles.length === 0) {
+      return null; 
+    }
+  
+    const domainCars = motorcycles.map((motorcycle) => new Motorcycle(
+      motorcycle,
+    ));
+  
+    return domainCars;
+  }
+
+  public async getById(id: string): Promise<Motorcycle | null> {
+    const motorcycle = await this.motorcycleODM.findById(id);
+    return this.createMotorcycleDomain(motorcycle);
+  }
 }
 
 export default MotorcycleService;

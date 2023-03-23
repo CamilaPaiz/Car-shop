@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-/* import { isValidObjectId } from 'mongoose'; */
 import IMotorcycle from '../Interfaces/IMotorcycle'; 
 import MotorcycleService from '../Services/MotorcycleService';
 
@@ -25,6 +24,18 @@ class MotorcycleController {
     } catch (error) {
       next(error);
     }
+  }
+  public async findAll(_req:Request, res:Response) {
+    const motorcycle = await this.service.getAll();
+    return res.status(200).json(motorcycle);
+  }
+  public async findById(req: Request, res: Response) {
+    const { id } = req.params;
+    const motorcycle = await this.service.getById(id);
+    if (!motorcycle) {
+      return res.status(404).json({ message: 'Motorcycle not found' });
+    }
+    return res.status(200).json(motorcycle);
   }
 }
 
