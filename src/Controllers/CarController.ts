@@ -28,7 +28,7 @@ class CarController {
   }
 
   public async findAll(_req:Request, res:Response) {
-    const car = await this.service.findAll();
+    const car = await this.service.getAll();
     return res.status(200).json(car);
   }
 
@@ -37,7 +37,7 @@ class CarController {
     if (!isValidObjectId(id)) {
       return res.status(422).json({ message: 'Invalid mongo id' });
     }
-    const car = await this.service.findById(id);
+    const car = await this.service.getById(id);
     if (!car) {
       return res.status(404).json({ message: 'Car not found' });
     }
