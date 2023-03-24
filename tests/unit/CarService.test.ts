@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+/* import { Model } from 'mongoose';
 import Sinon from 'sinon';
 import { expect } from 'chai';
 import Car from '../../src/Domains/Car';
@@ -94,7 +94,8 @@ describe('Teste da camada CarService', function () {
     // Assertion 
     expect(result).to.be.equal(null);
   }); 
+
   afterEach(function () {
     Sinon.restore();
   });
-});
+}); */

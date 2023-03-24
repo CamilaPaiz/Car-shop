@@ -15,5 +15,6 @@ motorcycleRoutes.post('/motorcycles', (req, res, next) => motorcycleController
 motorcycleRoutes.get('/motorcycles', (req, res) => motorcycleController.findAll(req, res));
 motorcycleRoutes.get('/motorcycles/:id', validateMongoId, (req, res) => motorcycleController
   .findById(req, res)); 
-
+motorcycleRoutes.put('/motorcycles/:id', validateMongoId, (req, res) => motorcycleController
+  .update(req, res));
 export default motorcycleRoutes;  

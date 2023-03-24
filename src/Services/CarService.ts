@@ -42,7 +42,7 @@ class CarService {
 
   public async update(id :string, obj: ICar): Promise<Car | null> {
     const carUpdated = await this.carODM.update(id, obj);
-  
+    
     return this.createCarDomain(carUpdated);
   }   
 }
